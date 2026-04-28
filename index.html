@@ -147,25 +147,26 @@
     .section-head h2{font-size:clamp(2rem,3.7vw,3.7rem);font-weight:750;letter-spacing:-.02em}
     .section-head p{max-width:560px;margin:0;color:rgba(43,38,34,.68);font-size:1.05rem;line-height:1.45}
 
-    .journey{position:relative;padding:10px 0 18px}
-    .journey:before{content:"";position:absolute;top:34px;bottom:34px;left:50%;width:4px;transform:translateX(-50%);background:repeating-linear-gradient(to bottom,rgba(140,106,74,.48) 0 10px,transparent 10px 20px)}
-    .journey-item{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:76px;margin-bottom:34px}
+    .journey{position:relative;padding:4px 0 8px}
+    .journey:before{content:"";position:absolute;top:22px;bottom:22px;left:50%;width:4px;transform:translateX(-50%);background:repeating-linear-gradient(to bottom,rgba(140,106,74,.48) 0 10px,transparent 10px 20px);background-size:100% 40px;animation:journeyFlow 18s linear infinite}
+    .journey-item{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-bottom:22px;opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;transition-delay:var(--delay,0ms)}
+    .journey-item.is-visible{opacity:1;transform:translateY(0)}
     .journey-item:nth-child(even) .journey-card{grid-column:2}
-    .node{position:absolute;left:50%;top:28px;z-index:2;width:44px;height:44px;transform:translateX(-50%);border:4px solid var(--paper);border-radius:50%;background:var(--sand);display:grid;place-items:center;font-weight:900;box-shadow:0 8px 18px rgba(43,38,34,.16)}
-    .journey-card{min-height:230px;padding:22px;border:1px solid rgba(43,38,34,.11);border-radius:18px 8px 18px 8px;background:rgba(255,249,240,.82);box-shadow:0 18px 50px rgba(43,38,34,.08);transition:.2s ease}
-    .journey-card:hover{transform:translateY(-4px);box-shadow:0 22px 56px rgba(43,38,34,.13)}
+    .node{position:absolute;left:50%;top:22px;z-index:2;width:36px;height:36px;transform:translateX(-50%);border:3px solid var(--paper);border-radius:50%;background:var(--sand);display:grid;place-items:center;font-weight:900;font-size:.9rem;box-shadow:0 8px 18px rgba(43,38,34,.16);transition:background .24s ease,color .24s ease,box-shadow .24s ease}
+    .journey-card{min-height:auto;padding:16px 18px;border:1px solid rgba(43,38,34,.11);border-radius:16px 8px 16px 8px;background:rgba(255,249,240,.82);box-shadow:0 10px 28px rgba(43,38,34,.06);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+    .journey-card:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(43,38,34,.10)}
     .journey-card[data-status="recommended"]{border-color:rgba(182,73,46,.52);background:linear-gradient(145deg,rgba(255,249,240,.96),rgba(182,73,46,.08))}
     .journey-card[data-status="visited"]{border-color:rgba(111,127,95,.48);background:linear-gradient(145deg,rgba(255,249,240,.90),rgba(111,127,95,.14))}
     .journey-card[data-status="recommended"]+.node,.journey-card[data-status="visited"]+.node{background:var(--accent);color:#fff}
-    .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
-    .journey-icon{width:48px;height:48px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:rgba(216,196,168,.44);color:var(--accent);font-size:1.25rem;font-weight:900}
-    .journey-card h3{font-size:1.46rem;line-height:1.12;margin-top:8px}
-    .journey-card p{color:rgba(43,38,34,.69);line-height:1.48;margin:12px 0 0}
-    .status{display:inline-flex;width:fit-content;margin-top:12px;border-radius:999px;padding:5px 9px;background:rgba(43,38,34,.08);color:rgba(43,38,34,.74);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+    .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .journey-icon{width:38px;height:38px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:rgba(216,196,168,.44);color:var(--accent);font-size:1rem;font-weight:900}
+    .journey-card h3{font-size:1.18rem;line-height:1.12;margin-top:6px}
+    .journey-card p{color:rgba(43,38,34,.66);font-size:.95rem;line-height:1.35;margin:8px 0 0}
+    .status{display:inline-flex;width:fit-content;min-height:24px;margin-top:10px;border-radius:999px;padding:4px 8px;background:rgba(43,38,34,.08);color:rgba(43,38,34,.74);font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
     .status.recommended{background:rgba(182,73,46,.13);color:var(--accent)}
     .status.visited{background:rgba(111,127,95,.16);color:var(--green)}
-    .journey-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:18px}
-    .journey-btn{min-height:40px;min-width:118px;border:1px solid rgba(43,38,34,.12);border-radius:999px;background:rgba(255,249,240,.90);padding:8px 14px;font-weight:900;cursor:pointer;transition:.18s ease}
+    .journey-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+    .journey-btn{min-height:36px;min-width:104px;border:1px solid rgba(43,38,34,.12);border-radius:999px;background:rgba(255,249,240,.90);padding:7px 12px;font-size:.92rem;font-weight:900;cursor:pointer;transition:.18s ease}
     .journey-btn:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
 
     .support-section{margin-top:18px;overflow:hidden;background:linear-gradient(120deg,rgba(111,127,95,.96),rgba(140,106,74,.92)),var(--green);color:var(--paper);padding:44px 28px;border-radius:22px 10px 22px 10px;position:relative}
@@ -173,8 +174,8 @@
     .support-section .section-head{margin:0 0 22px}
     .support-section .section-head p{color:rgba(244,237,228,.80)}
     .support-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-    .support-card{min-height:132px;padding:18px;border:1px solid rgba(255,249,240,.42);border-radius:18px 8px 18px 8px;background:rgba(255,249,240,.92);color:var(--ink);transition:.18s ease}
-    .support-card:hover{transform:translateY(-4px);background:#fff}
+    .support-card{min-height:132px;padding:18px;border:1px solid rgba(255,249,240,.42);border-radius:18px 8px 18px 8px;background:rgba(255,249,240,.92);color:var(--ink);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+    .support-card:hover{transform:translateY(-2px);background:#fff;box-shadow:0 12px 24px rgba(43,38,34,.10)}
     .support-icon{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-weight:900;margin-bottom:10px}
     .support-card h3{font-family:"Source Sans 3",system-ui,sans-serif;font-size:1.05rem;font-weight:900;line-height:1.15}
     .support-card p{margin:8px 0 12px;color:rgba(43,38,34,.66);line-height:1.35}
@@ -184,25 +185,33 @@
     .tools-section .section-head{margin:0 0 22px}
     .tools-section .section-head p{color:rgba(244,237,228,.82)}
     .tool-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-    .tool{display:grid;grid-template-columns:72px 1fr;align-items:start;gap:12px;text-align:left;color:var(--paper);min-height:118px;padding:16px;border:1px solid rgba(255,249,240,.22);border-radius:18px 8px 18px 8px;background:rgba(43,38,34,.13)}
+    .tool{display:grid;grid-template-columns:72px 1fr;align-items:start;gap:12px;text-align:left;color:var(--paper);min-height:118px;padding:16px;border:1px solid rgba(255,249,240,.22);border-radius:18px 8px 18px 8px;background:rgba(43,38,34,.13);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+    .tool:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(43,38,34,.12);background:rgba(43,38,34,.17)}
     .tool-icon{width:72px;height:72px;border-radius:0;display:flex;align-items:center;justify-content:center;background:none;border:0;box-shadow:none;outline:0;padding:0;flex-shrink:0;grid-row:span 2}
     .tool-icon img{width:72px;height:72px;display:block;object-fit:contain;border:0;border-radius:0;background:none;box-shadow:none}
     .tool h3{font-family:"Source Sans 3",system-ui,sans-serif;font-size:1rem;font-weight:900;line-height:1.08;margin:0}
     .tool p{margin:7px 0 0;color:rgba(244,237,228,.78);line-height:1.32;font-size:.94rem}
 
-    .how{margin-top:56px;border:1px solid rgba(140,106,74,.18);border-radius:22px 10px 22px 10px;background:rgba(255,249,240,.76);box-shadow:0 12px 34px rgba(43,38,34,.07);padding:28px}
-    .how h2{font-size:clamp(2rem,3vw,3rem);font-weight:750}
-    .how p{max-width:900px;color:rgba(43,38,34,.72);line-height:1.55;font-size:1.05rem}
-    .how ul{margin:22px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-    .how li{position:relative;border:1px solid rgba(43,38,34,.10);border-radius:12px;background:rgba(244,237,228,.70);padding:14px 14px 14px 42px;color:rgba(43,38,34,.78)}
+    .how{margin-top:48px;border:1px solid rgba(140,106,74,.12);border-radius:18px 8px 18px 8px;background:rgba(255,249,240,.56);box-shadow:0 8px 20px rgba(43,38,34,.04);padding:22px}
+    .how h2{font-size:clamp(1.65rem,2.4vw,2.35rem);font-weight:750}
+    .how p{max-width:900px;color:rgba(43,38,34,.68);line-height:1.5;font-size:1rem}
+    .how ul{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .how li{position:relative;border:1px solid rgba(43,38,34,.08);border-radius:10px;background:rgba(244,237,228,.44);padding:12px 14px 12px 38px;color:rgba(43,38,34,.74);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease}
+    .how li:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(43,38,34,.07);background:rgba(244,237,228,.58)}
     .how li:before{content:"";position:absolute;left:16px;top:20px;width:11px;height:11px;border-radius:50%;background:var(--accent)}
     .footer{margin-left:var(--side);background:rgba(43,38,34,.92);color:var(--paper);padding:32px 28px}
     .footer .fixed-wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:rgba(244,237,228,.75)}
     .footer strong{color:#fff}
 
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+    .reveal.is-visible{opacity:1;transform:translateY(0)}
+    .just-updated{animation:softPulse .7s ease-out}
+    @keyframes softPulse{0%{box-shadow:0 0 0 0 rgba(182,73,46,.22)}100%{box-shadow:0 0 0 12px rgba(182,73,46,0)}}
+    @keyframes journeyFlow{from{background-position-y:0}to{background-position-y:40px}}
+
     @media (max-width:1180px){.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media (max-width:900px){:root{--topbar:62px;--side:0px}body{padding-top:var(--topbar)}body:after{inset:var(--topbar) 0 0 0}.topbar{height:var(--topbar);padding:0 16px}.global-nav{display:none}.side{display:none}.shell{margin-left:0;padding:18px 14px 0}.course-banner{height:220px;border-radius:18px;background-position:center center}.breadcrumb{min-height:56px;padding:0 16px;overflow-x:auto}.crumb{min-height:56px;font-size:14px}.crumb:not(:last-child):after{height:56px;margin-inline:10px;width:18px}.hero-card{min-height:auto;padding:28px 22px}h1{font-size:clamp(2.7rem,11vw,4.2rem)}.next-card{grid-template-columns:1fr;padding:22px}.support-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.how ul{grid-template-columns:1fr}.footer{margin-left:0}.journey:before{left:26px;transform:none}.journey-item,.journey-item:nth-child(even){display:block;padding-left:68px}.journey-item:nth-child(even) .journey-card{grid-column:auto}.node{left:26px}.journey-card{min-height:auto}.journey-footer{flex-direction:column;align-items:stretch}.journey-btn{width:100%}}
-    @media (max-width:640px){.topbar{gap:14px}.ava-mark{width:34px;height:34px}.global-actions{margin-left:auto;gap:14px;font-size:19px}.global-actions .hide-sm{display:none}.course-banner{height:180px}.section-head{display:block;margin-top:42px}.section-head p{margin-top:10px}.support-section,.tools-section{padding:32px 18px}.support-grid{grid-template-columns:1fr}.tool-grid{grid-template-columns:1fr}.tool{grid-template-columns:58px 1fr}.tool-icon{width:58px;height:58px}.tool-icon img{width:58px;height:58px}}
+    @media (max-width:900px){:root{--topbar:62px;--side:0px}body{padding-top:var(--topbar)}body:after{inset:var(--topbar) 0 0 0}.topbar{height:var(--topbar);padding:0 16px}.global-nav{display:none}.side{display:none}.shell{margin-left:0;padding:18px 14px 0}.course-banner{height:220px;border-radius:18px;background-position:center center}.breadcrumb{min-height:56px;padding:0 16px;overflow-x:auto}.crumb{min-height:56px;font-size:14px}.crumb:not(:last-child):after{height:56px;margin-inline:10px;width:18px}.hero-card{min-height:auto;padding:28px 22px}h1{font-size:clamp(2.7rem,11vw,4.2rem)}.next-card{grid-template-columns:1fr;padding:22px}.support-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.how ul{grid-template-columns:1fr}.footer{margin-left:0}.journey:before{left:22px;transform:none}.journey-item,.journey-item:nth-child(even){display:block;padding-left:56px;margin-bottom:18px}.journey-item:nth-child(even) .journey-card{grid-column:auto}.node{left:22px;width:34px;height:34px}.journey-card{min-height:auto;padding:16px}.journey-footer{flex-direction:row;align-items:center}}
+    @media (max-width:640px){.topbar{gap:14px}.ava-mark{width:34px;height:34px}.global-actions{margin-left:auto;gap:14px;font-size:19px}.global-actions .hide-sm{display:none}.course-banner{height:180px}.section-head{display:block;margin-top:42px}.section-head p{margin-top:10px}.support-section,.tools-section{padding:32px 18px}.support-grid{grid-template-columns:1fr}.tool-grid{grid-template-columns:1fr}.tool{grid-template-columns:58px 1fr}.tool-icon{width:58px;height:58px}.tool-icon img{width:58px;height:58px}.journey-footer{flex-direction:column;align-items:stretch}.journey-btn{width:100%}}
 
     @media (min-width:901px) and (max-width:1280px){
       .topbar{gap:18px;padding-inline:28px}
@@ -210,7 +219,7 @@
       .global-nav::-webkit-scrollbar{display:none}
       .global-actions{gap:16px}
       .course-banner{height:clamp(260px,25vw,320px)}
-      .journey-item{gap:60px}
+      .journey-item{gap:64px}
     }
 
     @media (max-width:760px){
@@ -225,13 +234,14 @@
       .next-card{padding:20px 18px}
       .meta-row{display:grid;grid-template-columns:1fr}
       .section-head h2{font-size:clamp(1.9rem,10vw,3rem)}
-      .journey-item,.journey-item:nth-child(even){padding-left:58px;margin-bottom:22px}
+      .journey-item,.journey-item:nth-child(even){padding-left:56px;margin-bottom:18px}
       .journey:before{left:22px}
-      .node{left:22px;width:40px;height:40px}
-      .journey-card{padding:18px;border-radius:16px 8px 16px 8px}
+      .node{left:22px;width:34px;height:34px}
+      .journey-card{padding:16px;border-radius:16px 8px 16px 8px}
       .card-top{gap:12px}
       .journey-icon{width:42px;height:42px;font-size:1rem}
-      .journey-card h3{font-size:1.28rem}
+      .journey-card h3{font-size:1.12rem}
+      .journey-card p{font-size:.94rem}
       .support-section,.tools-section,.how{border-radius:18px 8px 18px 8px}
       .footer .fixed-wrap{display:grid;gap:8px}
     }
@@ -254,18 +264,166 @@
       .eyebrow{font-size:11px;min-height:30px}
       h1{font-size:clamp(2.35rem,13vw,3.2rem);line-height:1.02}
       .next-card h2{font-size:1.65rem}
-      .journey-item,.journey-item:nth-child(even){padding-left:48px}
-      .journey:before{left:18px;width:3px}
-      .node{left:18px;width:34px;height:34px;border-width:3px;font-size:.9rem}
+      .journey-item,.journey-item:nth-child(even){padding-left:56px}
+      .journey:before{left:22px;width:3px}
+      .node{left:22px;width:34px;height:34px;border-width:3px;font-size:.9rem}
       .journey-card{padding:16px}
-      .card-top{display:block}
-      .journey-icon{margin-top:12px}
+      .card-top{display:flex}
+      .journey-icon{margin-top:0}
       .support-section,.tools-section{padding:26px 14px}
       .support-card,.tool{border-radius:14px 8px 14px 8px}
       .tool{grid-template-columns:58px 1fr;padding:14px}
       .how{padding:22px 16px}
       .how li{padding-right:12px}
       .footer{padding:26px 16px}
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      *,
+      *::before,
+      *::after{
+        animation-duration:.001ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.001ms !important;
+        scroll-behavior:auto !important;
+      }
+    }
+
+    /* ===== MAPA VIVO — AJUSTE DE PROPORÇÃO, SEM MUDAR DESIGN ===== */
+
+    #jornada .journey {
+      padding: 6px 0 14px;
+    }
+
+    #jornada .journey::before {
+      top: 24px;
+      bottom: 24px;
+    }
+
+    #jornada .journey-item {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 64px;
+      margin-bottom: 24px;
+      align-items: start;
+    }
+
+    #jornada .journey-item:nth-child(even) .journey-card {
+      grid-column: 2;
+    }
+
+    #jornada .journey-card {
+      width: 100%;
+      max-width: 520px;
+      min-height: 150px;
+      padding: 18px;
+      border-radius: 18px 8px 18px 8px;
+    }
+
+    #jornada .journey-item:not(:nth-child(even)) .journey-card {
+      justify-self: end;
+    }
+
+    #jornada .journey-item:nth-child(even) .journey-card {
+      justify-self: start;
+    }
+
+    #jornada .card-top {
+      gap: 14px;
+    }
+
+    #jornada .journey-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1rem;
+    }
+
+    #jornada .journey-card h3 {
+      font-size: 1.16rem;
+      line-height: 1.15;
+      margin-top: 6px;
+    }
+
+    #jornada .journey-card p {
+      margin: 8px 0 0;
+      font-size: 0.95rem;
+      line-height: 1.36;
+    }
+
+    #jornada .status {
+      margin-top: 10px;
+      padding: 4px 8px;
+      font-size: 0.68rem;
+    }
+
+    #jornada .journey-footer {
+      margin-top: 12px;
+      gap: 10px;
+    }
+
+    #jornada .journey-btn {
+      min-height: 36px;
+      min-width: 104px;
+      padding: 7px 12px;
+      font-size: 0.92rem;
+    }
+
+    #jornada .node {
+      width: 38px;
+      height: 38px;
+      top: 22px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      #jornada .journey::before {
+        left: 24px;
+        transform: none;
+      }
+
+      #jornada .journey-item,
+      #jornada .journey-item:nth-child(even) {
+        display: block;
+        padding-left: 60px;
+        margin-bottom: 18px;
+      }
+
+      #jornada .journey-item .journey-card,
+      #jornada .journey-item:nth-child(even) .journey-card {
+        max-width: 100%;
+        width: 100%;
+        justify-self: auto;
+        grid-column: auto;
+      }
+
+      #jornada .node {
+        left: 24px;
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      #jornada .journey-card {
+        min-height: auto;
+        padding: 16px;
+      }
+
+      #jornada .journey-card h3 {
+        font-size: 1.08rem;
+      }
+
+      #jornada .journey-card p {
+        font-size: 0.94rem;
+      }
+
+      #jornada .journey-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      #jornada .journey-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -287,13 +445,22 @@
     <main>
       <section class="hero" id="topo"><article class="hero-card"><p class="eyebrow">Mapa Vivo de Cuidado</p><h1>Percurso em Rede</h1><p class="lead">Uma jornada formativa sobre cuidado, território, vínculos e direitos nas situações de crise em saúde mental.</p><div class="actions"><a class="btn btn-primary" href="#proximo">Começar pelo Sobre o Curso</a><a class="btn" href="#jornada">Ver mapa do percurso</a></div></article></section>
 
-      <section id="proximo"><article class="next-card"><div><h2>Você está aqui</h2><p id="nextText">Próximo recomendado: Sobre o Curso. Todos os pontos do curso estão disponíveis; sugerimos começar por aqui para entender a proposta, os módulos, as atividades e os critérios de certificação.</p><div class="meta-row"><span class="pill">Tempo estimado: <strong id="nextTime">&nbsp;10 min</strong></span><span class="pill" id="statePill">Recomendado</span></div></div><button class="btn btn-primary" id="startBtn">Conhecer</button></article></section>
+      <section id="proximo"><article class="next-card"><div><h2>Você está aqui</h2><p id="nextText">Comece pelo Sobre o Curso para entender a proposta, a organização dos módulos, as atividades e os critérios de certificação. Todos os pontos estão disponíveis, mas esta é a melhor porta de entrada.</p><div class="meta-row"><span class="pill">Tempo estimado: <strong id="nextTime">&nbsp;10 min</strong></span><span class="pill" id="statePill">Recomendado</span></div></div><button class="btn btn-primary" id="startBtn">Conhecer</button></article></section>
 
-      <section id="jornada"><div class="section-head"><h2>Mapa Vivo da Jornada</h2><p>Uma sequência sugerida para orientar o estudo. Todos os pontos permanecem disponíveis desde o início.</p></div><div class="journey" id="journeyList" aria-label="Mapa da jornada"></div></section>
+      <section id="jornada"><div class="section-head"><h2>Mapa Vivo da Jornada</h2><p>Uma sequência sugerida para orientar o estudo. Todos os pontos permanecem disponíveis desde o início.</p></div><div class="journey" id="journeyList" aria-label="Mapa da jornada">
+        <article class="journey-item"><div class="journey-card" data-index="0" data-status="recommended"><div class="card-top"><div><span class="pill">Ponto 1</span><h3>Sobre o Curso</h3></div><div class="journey-icon">○</div></div><p>Conheça a proposta pedagógica, a organização dos módulos, as atividades e os critérios de certificação.</p><span class="status recommended">Recomendado</span><div class="journey-footer"><span class="pill">10 min</span><button class="journey-btn" data-index="0">Conhecer</button></div></div><span class="node">1</span></article>
+        <article class="journey-item"><div class="journey-card" data-index="1" data-status="available"><div class="card-top"><div><span class="pill">Ponto 2</span><h3>Reinventando a invenção para viver intensamente o poder local</h3></div><div class="journey-icon">↝</div></div><p>Uma abertura editorial sobre território, potência comunitária e invenção cotidiana do cuidado.</p><span class="status available">Disponível</span><div class="journey-footer"><span class="pill">25 min</span><button class="journey-btn" data-index="1">Ler abertura</button></div></div><span class="node">2</span></article>
+        <article class="journey-item"><div class="journey-card" data-index="2" data-status="available"><div class="card-top"><div><span class="pill">Ponto 3</span><h3>Módulo 1 — As muitas vidas de Antônia: da segregação à cidadania</h3></div><div class="journey-icon">◇</div></div><p>Acompanhe uma narrativa de vida para discutir cidadania, liberdade e cuidado em saúde mental.</p><span class="status available">Disponível</span><div class="journey-footer"><span class="pill">1h 20min</span><button class="journey-btn" data-index="2">Entrar no módulo</button></div></div><span class="node">3</span></article>
+        <article class="journey-item"><div class="journey-card" data-index="3" data-status="available"><div class="card-top"><div><span class="pill">Ponto 4</span><h3>Módulo 2 — Caixa de ferramentas para situações de crise: estratégias indiretas</h3></div><div class="journey-icon">☷</div></div><p>Mapeie abordagens preventivas, pactos, vínculo e leitura de sinais no território.</p><span class="status available">Disponível</span><div class="journey-footer"><span class="pill">1h 40min</span><button class="journey-btn" data-index="3">Ver estratégias indiretas</button></div></div><span class="node">4</span></article>
+        <article class="journey-item"><div class="journey-card" data-index="4" data-status="available"><div class="card-top"><div><span class="pill">Ponto 5</span><h3>Módulo 3 — Caixa de ferramentas para situações de crise: estratégias imediatas</h3></div><div class="journey-icon">✦</div></div><p>Organize respostas de cuidado para momentos de urgência sem perder direitos de vista.</p><span class="status available">Disponível</span><div class="journey-footer"><span class="pill">1h 45min</span><button class="journey-btn" data-index="4">Ver estratégias imediatas</button></div></div><span class="node">5</span></article>
+        <article class="journey-item"><div class="journey-card" data-index="5" data-status="available"><div class="card-top"><div><span class="pill">Ponto 6</span><h3>Módulo 4 — Prática no manejo de situação de crise</h3></div><div class="journey-icon">↟</div></div><p>Exercite decisões, escuta e composição de rede em situações próximas da prática real.</p><span class="status available">Disponível</span><div class="journey-footer"><span class="pill">2h</span><button class="journey-btn" data-index="5">Praticar manejo</button></div></div><span class="node">6</span></article>
+        <article class="journey-item"><div class="journey-card" data-index="6" data-status="available"><div class="card-top"><div><span class="pill">Ponto 7</span><h3>Sobre as atividades — uma ação a tempo e junto</h3></div><div class="journey-icon">✎</div></div><p>Entenda a atividade integradora e prepare uma ação situada no seu contexto de atuação.</p><span class="status available">Disponível</span><div class="journey-footer"><span class="pill">35 min</span><button class="journey-btn" data-index="6">Ver atividades</button></div></div><span class="node">7</span></article>
+        <article class="journey-item"><div class="journey-card" data-index="7" data-status="available"><div class="card-top"><div><span class="pill">Ponto 8</span><h3>Certificação</h3></div><div class="journey-icon">✓</div></div><p>Confira os requisitos finais e acompanhe sua liberação para emissão do certificado.</p><span class="status available">Disponível</span><div class="journey-footer"><span class="pill">5 min</span><button class="journey-btn" data-index="7">Ver certificação</button></div></div><span class="node">8</span></article>
+      </div></section>
 
       <section class="support-section" id="apoio"><div class="section-head"><h2>Precisa de apoio durante o percurso?</h2><p>Acesse rapidamente os principais espaços de acompanhamento do curso.</p></div><div class="support-grid"><article class="support-card"><div class="support-icon">?</div><h3>Fórum de dúvidas</h3><p>Trocas coletivas para perguntas que podem ajudar toda a turma.</p><span>Enviar dúvida</span></article><article class="support-card"><div class="support-icon">T</div><h3>Fale com a tutoria</h3><p>Acolhimento e orientação para seguir no seu ritmo.</p><span>Falar com tutoria</span></article><article class="support-card"><div class="support-icon">C</div><h3>Calendário</h3><p>Datas importantes vistas como marcos do percurso.</p><span>Ver prazos</span></article><article class="support-card"><div class="support-icon">B</div><h3>Biblioteca</h3><p>Leituras, vídeos e referências para aprofundamento.</p><span>Consultar materiais</span></article><article class="support-card"><div class="support-icon">N</div><h3>Minhas notas</h3><p>Registro claro das entregas e devolutivas recebidas.</p><span>Acompanhar desempenho</span></article><article class="support-card"><div class="support-icon">S</div><h3>Suporte técnico</h3><p>Ajuda para acessar materiais, atividades e recursos do AVA.</p><span>Abrir suporte</span></article></div></section>
 
-      <section class="tools-section" id="biblioteca"><div class="section-head"><h2>Ferramentas para aprofundar</h2><p>Recursos complementares para apoiar reflexão, prática e estudo.</p></div><div class="tool-grid"><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-para-refletir.svg" alt="" aria-hidden="true"></div><div><h3>Para refletir</h3><p>Perguntas e provocações para ampliar a leitura crítica do tema.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-saiba-mais.svg" alt="" aria-hidden="true"></div><div><h3>Saiba mais</h3><p>Conteúdos complementares para aprofundar conceitos do percurso.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-importante.svg" alt="" aria-hidden="true"></div><div><h3>Importante</h3><p>Alertas e orientações centrais para não perder de vista.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-dica.svg" alt="" aria-hidden="true"></div><div><h3>Dica</h3><p>Sugestões práticas para apoiar estudo, navegação e aplicação.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-link.svg" alt="" aria-hidden="true"></div><div><h3>Link</h3><p>Caminhos externos selecionados pela equipe do curso.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-legislacao.svg" alt="" aria-hidden="true"></div><div><h3>Legislação</h3><p>Normas, políticas e marcos legais relacionados ao cuidado.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-download.svg" alt="" aria-hidden="true"></div><div><h3>Download</h3><p>Materiais de apoio para guardar, imprimir ou compartilhar.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-exemplo.svg" alt="" aria-hidden="true"></div><div><h3>Exemplo</h3><p>Casos e situações que aproximam teoria e prática.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-video.svg" alt="" aria-hidden="true"></div><div><h3>Vídeo</h3><p>Aulas, depoimentos e cenas formativas do percurso.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-audio.svg" alt="" aria-hidden="true"></div><div><h3>Áudio</h3><p>Escutas curtas para outros ritmos e contextos de estudo.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-exercicios.svg" alt="" aria-hidden="true"></div><div><h3>Exercícios</h3><p>Atividades para testar compreensão e tomada de decisão.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-feedback.svg" alt="" aria-hidden="true"></div><div><h3>Feedback</h3><p>Devolutivas e orientações para ajustar a rota de aprendizagem.</p></div></article></div></section>
+      <section class="tools-section" id="biblioteca"><div class="section-head"><h2>Ferramentas para aprofundar</h2><p>Recursos complementares para apoiar reflexão, prática e estudo.</p></div><div class="tool-grid"><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-para-refletir.svg" alt="" aria-hidden="true"></div><div><h3>Para refletir</h3><p>Perguntas e provocações para ampliar a leitura crítica do tema.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-saiba-mais.svg" alt="" aria-hidden="true"></div><div><h3>Saiba mais</h3><p>Conteúdos complementares para aprofundar conceitos do percurso.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-importante.svg" alt="" aria-hidden="true"></div><div><h3>Importante</h3><p>Alertas e orientações centrais para não perder de vista.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-dica.svg" alt="" aria-hidden="true"></div><div><h3>Dica</h3><p>Sugestões práticas para apoiar estudo, navegação e aplicação.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-video.svg" alt="" aria-hidden="true"></div><div><h3>Vídeo</h3><p>Aulas, depoimentos e cenas formativas do percurso.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-audio.svg" alt="" aria-hidden="true"></div><div><h3>Áudio</h3><p>Escutas curtas para outros ritmos e contextos de estudo.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-exercicios.svg" alt="" aria-hidden="true"></div><div><h3>Exercícios</h3><p>Atividades para testar compreensão e tomada de decisão.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-exemplo.svg" alt="" aria-hidden="true"></div><div><h3>Exemplo</h3><p>Casos e situações que aproximam teoria e prática.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-link.svg" alt="" aria-hidden="true"></div><div><h3>Link</h3><p>Caminhos externos selecionados pela equipe do curso.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-download.svg" alt="" aria-hidden="true"></div><div><h3>Download</h3><p>Materiais de apoio para guardar, imprimir ou compartilhar.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-legislacao.svg" alt="" aria-hidden="true"></div><div><h3>Legislação</h3><p>Normas, políticas e marcos legais relacionados ao cuidado.</p></div></article><article class="tool"><div class="tool-icon"><img src="assets/icons/icon-feedback.svg" alt="" aria-hidden="true"></div><div><h3>Feedback</h3><p>Devolutivas e orientações para ajustar a rota de aprendizagem.</p></div></article></div></section>
 
       <section class="how"><h2>Como percorrer este curso</h2><p>Todos os pontos do curso estão disponíveis desde o início. A jornada sugere uma ordem de estudo para facilitar sua experiência, mas você pode acessar os conteúdos conforme sua necessidade.</p><ul><li>Comece pelo Sobre o Curso para entender a proposta.</li><li>Siga a ordem sugerida para construir repertório progressivamente.</li><li>Use a Rede de apoio sempre que tiver dúvidas.</li><li>Consulte as Ferramentas para aprofundar conceitos e práticas.</li></ul></section>
     </main>
@@ -302,15 +469,21 @@
   <footer class="footer"><div class="fixed-wrap"><strong>Fiocruz Brasília • NEAD</strong><span>Protótipo conceitual para teste de experiência educacional</span></div></footer>
 
   <script>
-    const journeyPoints=[{title:"Sobre o Curso",description:"Conheça a proposta pedagógica, a organização dos módulos, as atividades e os critérios de certificação.",time:"10 min",icon:"○",action:"Conhecer",status:"recommended"},{title:"Reinventando a invenção para viver intensamente o poder local",description:"Uma abertura editorial sobre território, potência comunitária e invenção cotidiana do cuidado.",time:"25 min",icon:"↝",action:"Ler abertura",status:"available"},{title:"Módulo 1 — As muitas vidas de Antônia: da segregação à cidadania",description:"Acompanhe uma narrativa de vida para discutir cidadania, liberdade e cuidado em saúde mental.",time:"1h 20min",icon:"◇",action:"Entrar no módulo",status:"available"},{title:"Módulo 2 — Caixa de ferramentas para situações de crise: estratégias indiretas",description:"Mapeie abordagens preventivas, pactos, vínculo e leitura de sinais no território.",time:"1h 40min",icon:"☷",action:"Ver estratégias indiretas",status:"available"},{title:"Módulo 3 — Caixa de ferramentas para situações de crise: estratégias imediatas",description:"Organize respostas de cuidado para momentos de urgência sem perder direitos de vista.",time:"1h 45min",icon:"✦",action:"Ver estratégias imediatas",status:"available"},{title:"Módulo 4 — Prática no manejo de situação de crise",description:"Exercite decisões, escuta e composição de rede em situações próximas da prática real.",time:"2h",icon:"↟",action:"Praticar manejo",status:"available"},{title:"Sobre as atividades — uma ação a tempo e junto",description:"Entenda a atividade integradora e prepare uma ação situada no seu contexto de atuação.",time:"35 min",icon:"✎",action:"Ver atividades",status:"available"},{title:"Certificação",description:"Confira os requisitos finais e acompanhe sua liberação para emissão do certificado.",time:"5 min",icon:"✓",action:"Ver certificação",status:"available"}];
+    const journeyPoints=[{title:"Sobre o Curso",time:"10 min",action:"Conhecer",status:"recommended"},{title:"Reinventando a invenção para viver intensamente o poder local",time:"25 min",action:"Ler abertura",status:"available"},{title:"Módulo 1 — As muitas vidas de Antônia: da segregação à cidadania",time:"1h 20min",action:"Entrar no módulo",status:"available"},{title:"Módulo 2 — Caixa de ferramentas para situações de crise: estratégias indiretas",time:"1h 40min",action:"Ver estratégias indiretas",status:"available"},{title:"Módulo 3 — Caixa de ferramentas para situações de crise: estratégias imediatas",time:"1h 45min",action:"Ver estratégias imediatas",status:"available"},{title:"Módulo 4 — Prática no manejo de situação de crise",time:"2h",action:"Praticar manejo",status:"available"},{title:"Sobre as atividades — uma ação a tempo e junto",time:"35 min",action:"Ver atividades",status:"available"},{title:"Certificação",time:"5 min",action:"Ver certificação",status:"available"}];
     const labels={recommended:"Recomendado",available:"Disponível",visited:"Visitado"};
     const q=s=>document.querySelector(s), journeyList=q("#journeyList"), nextText=q("#nextText"), nextTime=q("#nextTime"), statePill=q("#statePill"), startBtn=q("#startBtn");
-    function renderJourney(){journeyList.innerHTML=journeyPoints.map((p,i)=>`<article class="journey-item"><div class="journey-card" data-index="${i}" data-status="${p.status}"><div class="card-top"><div><span class="pill">Ponto ${i+1}</span><h3>${p.title}</h3></div><div class="journey-icon">${p.icon}</div></div><p>${p.description}</p><span class="status ${p.status}">${labels[p.status]}</span><div class="journey-footer"><span class="pill">${p.time}</span><button class="journey-btn" data-index="${i}">${p.status==="visited"?"Revisitar":p.action}</button></div></div><span class="node">${i+1}</span></article>`).join("");document.querySelectorAll(".journey-card").forEach(card=>card.addEventListener("click",()=>visitPoint(Number(card.dataset.index))));document.querySelectorAll(".journey-btn").forEach(btn=>btn.addEventListener("click",event=>{event.stopPropagation();visitPoint(Number(btn.dataset.index))}))}
+    const revealItems=[...document.querySelectorAll(".hero,#proximo,#jornada,.support-section,.tools-section,.how")];
+    revealItems.forEach(item=>item.classList.add("reveal"));
+    journeyList.querySelectorAll(".journey-item").forEach((item,index)=>item.style.setProperty("--delay",`${index*70}ms`));
+    const revealObserver=new IntersectionObserver((entries,observer)=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add("is-visible");if(entry.target.id==="jornada"){journeyList.querySelectorAll(".journey-item").forEach(item=>item.classList.add("is-visible"))}observer.unobserve(entry.target)})},{threshold:.18,rootMargin:"0px 0px -8% 0px"});
+    revealItems.forEach(item=>revealObserver.observe(item));
+    function syncJourney(pulseIndex=-1){journeyPoints.forEach((p,i)=>{const card=journeyList.querySelector(`.journey-card[data-index="${i}"]`),status=card.querySelector(".status"),btn=card.querySelector(".journey-btn");card.classList.remove("just-updated");card.dataset.status=p.status;status.className=`status ${p.status}`;status.textContent=labels[p.status];btn.textContent=p.status==="visited"?"Revisitar":p.action;if(i===pulseIndex){card.classList.add("just-updated");setTimeout(()=>card.classList.remove("just-updated"),760)}})}
+    function bindJourney(){journeyList.querySelectorAll(".journey-card").forEach(card=>card.addEventListener("click",()=>visitPoint(Number(card.dataset.index))));journeyList.querySelectorAll(".journey-btn").forEach(btn=>btn.addEventListener("click",event=>{event.stopPropagation();visitPoint(Number(btn.dataset.index))}))}
     function setRecommended(){journeyPoints.forEach(p=>{if(p.status!=="visited")p.status="available"});const next=journeyPoints.find(p=>p.status!=="visited");if(next)next.status="recommended"}
-    function visitPoint(index){journeyPoints[index].status="visited";setRecommended();updateNext();renderJourney()}
-    function updateNext(){const visited=journeyPoints.filter(p=>p.status==="visited").length,next=journeyPoints.find(p=>p.status==="recommended")||journeyPoints.find(p=>p.status==="available");nextTime.innerHTML="&nbsp;"+(next?next.time:"5 min");if(visited===0){statePill.textContent="Recomendado";nextText.textContent="Próximo recomendado: Sobre o Curso. Todos os pontos do curso estão disponíveis; sugerimos começar por aqui para entender a proposta, os módulos, as atividades e os critérios de certificação.";startBtn.textContent="Conhecer"}else if(visited===journeyPoints.length){statePill.textContent="Visitado";nextText.textContent="Você visitou todos os pontos da jornada. A certificação está pronta para conferência final.";startBtn.textContent="Ver certificação"}else{statePill.textContent="Recomendado";nextText.textContent=`Próximo recomendado: ${next.title}. A ordem sugerida ajuda a construir repertório, mas todos os pontos seguem disponíveis.`;startBtn.textContent=next.action}}
+    function visitPoint(index){journeyPoints[index].status="visited";setRecommended();const pulseIndex=journeyPoints.findIndex(p=>p.status==="recommended");updateNext();syncJourney(pulseIndex)}
+    function updateNext(){const visited=journeyPoints.filter(p=>p.status==="visited").length,next=journeyPoints.find(p=>p.status==="recommended")||journeyPoints.find(p=>p.status==="available");nextTime.innerHTML="&nbsp;"+(next?next.time:"5 min");if(visited===0){statePill.textContent="Recomendado";nextText.textContent="Comece pelo Sobre o Curso para entender a proposta, a organização dos módulos, as atividades e os critérios de certificação. Todos os pontos estão disponíveis, mas esta é a melhor porta de entrada.";startBtn.textContent="Conhecer"}else if(visited===journeyPoints.length){statePill.textContent="Visitado";nextText.textContent="Você visitou todos os pontos da jornada. A certificação está pronta para conferência final.";startBtn.textContent="Ver certificação"}else{statePill.textContent="Recomendado";nextText.textContent=`Próximo recomendado: ${next.title}. A ordem sugerida ajuda a construir repertório, mas todos os pontos seguem disponíveis.`;startBtn.textContent=next.action}}
     startBtn.addEventListener("click",()=>{const nextIndex=journeyPoints.findIndex(p=>p.status==="recommended");if(nextIndex!==-1)visitPoint(nextIndex);document.querySelector("#jornada").scrollIntoView({behavior:"smooth",block:"start"})});
-    renderJourney();updateNext();
+    bindJourney();syncJourney();updateNext();
   </script>
 </body>
 </html>
