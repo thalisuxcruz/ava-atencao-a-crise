@@ -58,6 +58,102 @@
         repeating-linear-gradient(0deg, rgba(43, 38, 34, .025), rgba(43, 38, 34, .025) 1px, transparent 1px, transparent 9px);
     }
 
+    .splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      background: #F7F6F2;
+      transition: opacity .9s cubic-bezier(.45, 0, .55, 1), visibility .9s ease;
+    }
+
+    .splash.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .splash-content {
+      display: grid;
+      justify-items: center;
+      gap: 28px;
+    }
+
+    .splash-logo {
+      width: min(300px, 70vw);
+      opacity: 0;
+      transform: translateY(20px) scale(.96);
+      animation: splashIn .7s ease forwards;
+    }
+
+    .splash-credit {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeIn .5s ease forwards;
+      animation-delay: .4s;
+    }
+
+    .typewriter {
+      min-height: 1.4em;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #64707D;
+    }
+
+    .typewriter::after {
+      content: "|";
+      animation: blink .8s infinite;
+    }
+
+    .splash-signature {
+      width: 200px;
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+      animation: signature .8s ease forwards;
+      animation-delay: .8s;
+    }
+
+    .app {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .9s cubic-bezier(.45, 0, .55, 1), transform .9s ease;
+    }
+
+    .app.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes splashIn {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes signature {
+      to {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -915,6 +1011,16 @@
 </head>
 
 <body>
+  <div class="splash" id="splash">
+    <div class="splash-content">
+      <img class="splash-logo" src="assets/logo.svg" alt="Logo">
+      <div class="splash-credit">
+        <span class="typewriter" data-text="desenvolvido por"></span>
+        <img class="splash-signature" src="assets/signature.svg" alt="Assinatura">
+      </div>
+    </div>
+  </div>
+
   <header class="top">
     <div class="wrap top-inner">
       <a class="brand" href="#topo"><span class="mark" aria-hidden="true"></span><span>Apresentação do Ambiente Virtual
@@ -929,8 +1035,8 @@
     </div>
   </header>
 
-  <main id="topo">
-    <section class="hero reveal">
+  <main class="app" id="app">
+    <section class="hero reveal" id="topo">
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <p class="label">Handoff de Proposta</p>
@@ -1508,6 +1614,37 @@
   </footer>
 
   <script>
+    const splash = document.getElementById("splash");
+    const app = document.getElementById("app");
+    const typewriter = document.querySelector(".typewriter");
+
+    function typeText(el, text, speed = 30) {
+      let i = 0;
+      el.textContent = "";
+
+      const interval = setInterval(() => {
+        el.textContent += text[i];
+        i++;
+        if (i >= text.length) clearInterval(interval);
+      }, speed);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      if (typewriter) {
+        typeText(typewriter, typewriter.dataset.text);
+      }
+
+      setTimeout(() => {
+        if (splash) {
+          splash.classList.add("is-hidden");
+        }
+
+        if (app) {
+          app.classList.add("is-visible");
+        }
+      }, 2000);
+    });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
